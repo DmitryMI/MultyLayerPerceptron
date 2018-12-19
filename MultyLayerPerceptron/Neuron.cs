@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -18,6 +19,7 @@ namespace MultyLayerPerceptron
         private double _value;
 
         private IActivationFunction _activationFunction;
+
 
         public int Index
         {
@@ -41,8 +43,22 @@ namespace MultyLayerPerceptron
             set => _value = value;
         }
 
-        public void DoJob(Perceptron perceptron)
+        public double ReceivedValue { get; private set; }
+        public double ErrorValue { get; set; }
+
+
+        public void ResetState()
         {
+            // TODO Reset state
+        }
+
+        public void DoJob(Perceptron perceptron, List<Neuron> processed)
+        {
+            if(processed.Contains(this))
+                return;
+
+            processed.Add(this);
+
             if (_children.Count == 0)
             {
                 // Do nothing, we have no children
@@ -54,13 +70,16 @@ namespace MultyLayerPerceptron
                 {
                     int axonNeuronIndex = axon.NeuronIndex;
                     Neuron neuron = perceptron.GetByIndex(axonNeuronIndex);
-                    neuron.DoJob(perceptron); // Call value calculator
+                    
+                    neuron.DoJob(perceptron, processed); // Call value calculator
                     summ += neuron.Value * axon.Weight; // Adding value to summ
                 }
 
+                ReceivedValue = summ;
                 _value = _activationFunction.Activation(summ);
-                Console.WriteLine("Value calculated: " + _value);
             }
+
+            //Debug.WriteLine("Neuron {0} processed. Value = {1}", _index, _value);
         }
 
         public XmlNode ToXml(XmlDocument document)
@@ -107,6 +126,66 @@ namespace MultyLayerPerceptron
             }
 
             return neuron;
+        }
+
+        public void DoTrain(Perceptron perceptron, List<Neuron> processed, double alpha)
+        {
+            if(processed.Contains(this))
+                return;
+            
+            processed.Add(this);
+
+            // Get errors
+            var parents = FindParents(perceptron);
+            double[] errors = new double[parents.Count];
+            double summError = 0;
+            for (int i = 0; i < errors.Length; i++)
+            {
+                parents[i].DoTrain(perceptron, processed, alpha);
+                errors[i] = parents[i].ErrorValue;
+                double weight = GetWeight(parents[i]);
+                summError = weight * errors[i];
+            }
+
+            if(_activationFunction == null)
+                return;
+
+            ErrorValue = _activationFunction.Derivative(ReceivedValue) * summError;
+
+            double correctionValue = alpha * summError; // TODO Correction value
+
+            foreach (var axon in _children)
+            {
+                axon.Weight += correctionValue;
+                Debug.WriteLine("Neuron {0} corrected axon to {1} by {2}", _index, axon.NeuronIndex, correctionValue);
+            }
+        }
+
+        private List<Neuron> FindParents(Perceptron perceptron)
+        {
+            List<Neuron> parents = new List<Neuron>();
+            foreach (var neuron in perceptron.Neurons)
+            {
+                foreach (var axon in neuron)
+                {
+                    Neuron n = perceptron.GetByIndex(axon.NeuronIndex);
+                    if (axon.NeuronIndex == _index && !parents.Contains(neuron))
+                        parents.Add(neuron);
+                }
+            }
+
+            return parents;
+        }
+
+        private double GetWeight(Neuron parent)
+        {
+            foreach (var axon in parent)
+            {
+                if (axon.NeuronIndex == _index)
+                    return axon.Weight;
+            }
+
+            throw new InvalidOperationException("Not a parent");
         }
 
         #region ListImplementation

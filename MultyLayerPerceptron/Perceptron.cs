@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
@@ -29,6 +30,20 @@ namespace MultyLayerPerceptron
             {
                 double val = Activation(x);
                 return 1 - val * val;
+            }
+        }
+
+        class BinarySigmoid : IActivationFunction
+        {
+            public double Activation(double x)
+            {
+                return 1d / (1 + Math.Exp(-x));
+            }
+
+            public double Derivative(double x)
+            {
+                double val = Activation(x);
+                return val * (1 - val);
             }
         }
 
@@ -67,8 +82,15 @@ namespace MultyLayerPerceptron
             return n;
         }
 
+        private double GetRandomWeight()
+        {
+            return _rnd.NextDouble() - 0.5;
+        }
+
         public Perceptron(int layerCount, int layerSize, int inputlayerSize, int outputLayerSize)
         {
+            IActivationFunction function = new BinarySigmoid();
+
             int index = 0;
 
             Neuron[] inputNeurons = new Neuron[inputlayerSize];
@@ -83,11 +105,11 @@ namespace MultyLayerPerceptron
             // Filling first layer
             for (int i = 0; i < layerSize; i++)
             {
-                layer[i] = CreateNeuron(new TangentHyperbolic());
+                layer[i] = CreateNeuron(function);
                 layer[i].Index = index++;
                 foreach (Neuron inputNeuron in inputNeurons)
                 {
-                    layer[i].Add(new Axon(inputNeuron.Index, _rnd.NextDouble()));
+                    layer[i].Add(new Axon(inputNeuron.Index, GetRandomWeight()));
                 }
             }
 
@@ -97,11 +119,11 @@ namespace MultyLayerPerceptron
                 Neuron[] nLayer = new Neuron[layerSize];
                 for (int j = 0; j < layerSize; j++)
                 {
-                    nLayer[j] = CreateNeuron(new TangentHyperbolic());
+                    nLayer[j] = CreateNeuron(function);
                     nLayer[j].Index = index++;
                     foreach (Neuron prevNeuron in layer)
                     {
-                        nLayer[j].Add(new Axon(prevNeuron.Index, _rnd.NextDouble()));
+                        nLayer[j].Add(new Axon(prevNeuron.Index, GetRandomWeight()));
                     }
                 }
                 layer = nLayer;
@@ -112,11 +134,11 @@ namespace MultyLayerPerceptron
 
             for (int i = 0; i < outputLayerSize; i++)
             {
-                outputNeurons[i] = CreateNeuron(new TangentHyperbolic());
+                outputNeurons[i] = CreateNeuron(function);
                 outputNeurons[i].Index = index++;
                 foreach (Neuron prev in layer)
                 {
-                    outputNeurons[i].Add(new Axon(prev.Index, _rnd.NextDouble()));
+                    outputNeurons[i].Add(new Axon(prev.Index, GetRandomWeight()));
                 }
             }
 
@@ -137,9 +159,12 @@ namespace MultyLayerPerceptron
         {
             List<double> result = new List<double>(_output.Length);
 
+            List<Neuron> processedNeurons = new List<Neuron>(_neurons.Count);
+
+
             foreach (var output in _output)
             {
-                output.DoJob(this);
+                output.DoJob(this, processedNeurons);
                 result.Add(output.Value);
             }
 
@@ -235,6 +260,38 @@ namespace MultyLayerPerceptron
           
 
             return perceptron;
+        }
+
+        public void Train(double[] data, double[] correctResult, double alpha)
+        {
+            IActivationFunction function = new BinarySigmoid();
+
+            this.PutData(data);
+            double[] result = GetResult();
+
+            List<Neuron> processed = new List<Neuron>();
+           
+            for (int k = 0; k < result.Length; k++)
+            {
+                Neuron outNeuron = _output[k];
+                double error = (correctResult[k] - result[k]) * function.Derivative(outNeuron.ReceivedValue);
+                processed.Add(outNeuron);
+
+                foreach (var axon in outNeuron)
+                {
+                    Neuron input = GetByIndex(axon.NeuronIndex);
+                    double z = input.Value;
+                    double correctionValue = alpha * error * z;
+                    outNeuron.ErrorValue = error;
+                    axon.Weight += correctionValue;
+                    Debug.WriteLine("Neuron {0} corrected axon to {1} by {2}", outNeuron.Index, axon.NeuronIndex, correctionValue);
+                }
+            }
+
+            foreach (var inputNeuron in _input)
+            {
+                inputNeuron.DoTrain(this, processed, alpha);
+            }
         }
     }
 }

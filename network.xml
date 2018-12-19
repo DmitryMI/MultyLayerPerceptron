@@ -3,76 +3,76 @@
   <Neuron Id="1" FunctionName="null" />
   <Neuron Id="2" FunctionName="null" />
   <Neuron Id="3" FunctionName="null" />
-  <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="0" Weight="0,208059384584455" />
-    <Axon Id="1" Weight="0,616237606208882" />
-    <Axon Id="2" Weight="0,371225651060802" />
-    <Axon Id="3" Weight="0,524116069788167" />
+  <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="0" Weight="-0,155749122451874" />
+    <Axon Id="1" Weight="0,231959248768147" />
+    <Axon Id="2" Weight="-0,405581854705504" />
+    <Axon Id="3" Weight="-0,478026677844127" />
   </Neuron>
-  <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="0" Weight="0,886159812047221" />
-    <Axon Id="1" Weight="0,499378627398693" />
-    <Axon Id="2" Weight="0,263780831947821" />
-    <Axon Id="3" Weight="0,362890011334275" />
+  <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="0" Weight="-0,362575844331913" />
+    <Axon Id="1" Weight="0,147126619074087" />
+    <Axon Id="2" Weight="-0,292393400237147" />
+    <Axon Id="3" Weight="0,0768995855827348" />
   </Neuron>
-  <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="0" Weight="0,245371381400792" />
-    <Axon Id="1" Weight="0,245059908481808" />
-    <Axon Id="2" Weight="0,974989702447778" />
-    <Axon Id="3" Weight="0,67394090708063" />
+  <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="0" Weight="-0,390046378080755" />
+    <Axon Id="1" Weight="0,351024960563995" />
+    <Axon Id="2" Weight="0,184250851480407" />
+    <Axon Id="3" Weight="0,298540968354112" />
   </Neuron>
-  <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="0" Weight="0,56315877640767" />
-    <Axon Id="1" Weight="0,613990548818368" />
-    <Axon Id="2" Weight="0,899408878246047" />
-    <Axon Id="3" Weight="0,75201065826789" />
+  <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="0" Weight="0,164154902409834" />
+    <Axon Id="1" Weight="0,176787232829624" />
+    <Axon Id="2" Weight="0,186723248421551" />
+    <Axon Id="3" Weight="-0,483539661384905" />
   </Neuron>
-  <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="0" Weight="0,772101517660591" />
-    <Axon Id="1" Weight="0,239443047549316" />
-    <Axon Id="2" Weight="0,196757651025782" />
-    <Axon Id="3" Weight="0,242357610837723" />
+  <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="0" Weight="-0,0324332907481274" />
+    <Axon Id="1" Weight="-0,00308889267178669" />
+    <Axon Id="2" Weight="0,344693245293895" />
+    <Axon Id="3" Weight="0,227952278092481" />
   </Neuron>
-  <Neuron Id="9" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="4" Weight="0,159250326063135" />
-    <Axon Id="5" Weight="0,978146420315907" />
-    <Axon Id="6" Weight="0,711186900134751" />
-    <Axon Id="7" Weight="0,520181420967067" />
-    <Axon Id="8" Weight="0,106624793776602" />
+  <Neuron Id="9" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="4" Weight="0,083587557349162" />
+    <Axon Id="5" Weight="-0,1573355615406" />
+    <Axon Id="6" Weight="-0,23587014048168" />
+    <Axon Id="7" Weight="0,328903424939561" />
+    <Axon Id="8" Weight="-0,120801311275364" />
   </Neuron>
-  <Neuron Id="10" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="4" Weight="0,431382060717504" />
-    <Axon Id="5" Weight="0,0856331624489432" />
-    <Axon Id="6" Weight="0,883039570359066" />
-    <Axon Id="7" Weight="0,406181340760636" />
-    <Axon Id="8" Weight="0,236328878084351" />
+  <Neuron Id="10" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="4" Weight="0,441217991496072" />
+    <Axon Id="5" Weight="-0,272244443079571" />
+    <Axon Id="6" Weight="-0,0844199329542089" />
+    <Axon Id="7" Weight="0,102566411067995" />
+    <Axon Id="8" Weight="-0,215537560039916" />
   </Neuron>
-  <Neuron Id="11" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="4" Weight="0,835833492146727" />
-    <Axon Id="5" Weight="0,756616062371347" />
-    <Axon Id="6" Weight="0,62962351163366" />
-    <Axon Id="7" Weight="0,298393464786184" />
-    <Axon Id="8" Weight="0,863390340871825" />
+  <Neuron Id="11" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="4" Weight="0,496617787981694" />
+    <Axon Id="5" Weight="0,0234011730753823" />
+    <Axon Id="6" Weight="0,192393347012062" />
+    <Axon Id="7" Weight="-0,0890868439288283" />
+    <Axon Id="8" Weight="-0,130024303975526" />
   </Neuron>
-  <Neuron Id="12" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="4" Weight="0,078786127771617" />
-    <Axon Id="5" Weight="0,531604934731314" />
-    <Axon Id="6" Weight="0,0107958391359057" />
-    <Axon Id="7" Weight="0,230115069183575" />
-    <Axon Id="8" Weight="0,867080388528798" />
+  <Neuron Id="12" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="4" Weight="-0,46903806876812" />
+    <Axon Id="5" Weight="0,422283114829233" />
+    <Axon Id="6" Weight="-0,186318090505115" />
+    <Axon Id="7" Weight="0,203025818664127" />
+    <Axon Id="8" Weight="0,411784821148862" />
   </Neuron>
-  <Neuron Id="13" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="4" Weight="0,087284591089601" />
-    <Axon Id="5" Weight="0,12914212286898" />
-    <Axon Id="6" Weight="0,837174609227653" />
-    <Axon Id="7" Weight="0,446254677347026" />
-    <Axon Id="8" Weight="0,968543018199756" />
+  <Neuron Id="13" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="4" Weight="0,380753592066818" />
+    <Axon Id="5" Weight="-0,302993641143196" />
+    <Axon Id="6" Weight="-0,281083586523814" />
+    <Axon Id="7" Weight="0,282406242928657" />
+    <Axon Id="8" Weight="0,113834810729062" />
   </Neuron>
-  <Neuron Id="14" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
-    <Axon Id="9" Weight="0,76798192773386" />
-    <Axon Id="10" Weight="0,345390108109168" />
-    <Axon Id="11" Weight="0,301268412871877" />
-    <Axon Id="12" Weight="0,0358387986364955" />
-    <Axon Id="13" Weight="0,9503469080433" />
+  <Neuron Id="14" FunctionName="MultyLayerPerceptron.Perceptron+BinarySigmoid">
+    <Axon Id="9" Weight="0,314371297049509" />
+    <Axon Id="10" Weight="0,151503301994644" />
+    <Axon Id="11" Weight="0,129993310957213" />
+    <Axon Id="12" Weight="0,173857761395098" />
+    <Axon Id="13" Weight="-0,121438262807875" />
   </Neuron>
 </Perceptron>
