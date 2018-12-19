@@ -16,31 +16,47 @@ namespace TestPerceptron
         {
             Perceptron network = new Perceptron(2, 5, 4, 1);
 
-            double[] src = GetRandomArray();
+            double[] src = GetGoodArray();
 
             Console.Write("Source data: ");
             PrintArray(src);
 
-            Console.WriteLine("Correct answer: " + GetProduct(src));
+            Console.WriteLine("Correct answer: " + GetFirst(src));
             network.PutData(src);
             Console.WriteLine("Net result: ");
             double[] netFirstAnswer = network.GetResult();
             PrintArray(netFirstAnswer);
 
+            Console.ReadKey();
+
             Console.WriteLine("\nTraining...\n");
             
             // Train to multiply values
-            double result = GetProduct(src);
+            double result = GetFirst(src);
+            double prevError = 1;
             int iteration = 0;
             while(Math.Abs(result - netFirstAnswer[0]) > 0.01f)
             { 
                 double[] arr = GetRandomArray();
-                network.Train(arr, ToArray(GetProduct(arr)), 1);
+                network.Train(arr, ToArray(GetSumm(arr)), 0.5);
                 network.PutData(arr);
                 netFirstAnswer = network.GetResult();
                 iteration++;
-                Console.WriteLine("Error: " + Math.Abs(result - netFirstAnswer[0]) + "\titeration: " + iteration);
+                double error = Math.Abs(result - netFirstAnswer[0]);
+                Console.WriteLine("Error: " + Math.Abs(result - netFirstAnswer[0]) + "\titeration: " + iteration + "\tResult: " + netFirstAnswer[0]);
+                if (prevError < error)
+                    break;
+                prevError = error;
             }
+
+            for (int i = 0; i < 10; i++)
+            {
+                double[] arr = GetRandomArray();
+                network.PutData(arr);
+                Console.WriteLine("No training error: " + Math.Abs(result - network.GetResult()[0]));
+            }
+
+
 
             network.PutData(src);
             Console.WriteLine("Net result: ");
@@ -81,6 +97,18 @@ namespace TestPerceptron
             }
 
             return summ;
+        }
+
+        static double[] GetGoodArray()
+        {
+            double[] result = new double[4];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = 0.8;
+            }
+
+            return result;
         }
 
         static double GetFirst(double[] arr)

@@ -137,14 +137,13 @@ namespace MultyLayerPerceptron
 
             // Get errors
             var parents = FindParents(perceptron);
-            double[] errors = new double[parents.Count];
             double summError = 0;
-            for (int i = 0; i < errors.Length; i++)
+            for (int i = 0; i < parents.Count; i++)
             {
                 parents[i].DoTrain(perceptron, processed, alpha);
-                errors[i] = parents[i].ErrorValue;
+                double error = parents[i].ErrorValue;
                 double weight = GetWeight(parents[i]);
-                summError = weight * errors[i];
+                summError = weight * error;
             }
 
             if(_activationFunction == null)
