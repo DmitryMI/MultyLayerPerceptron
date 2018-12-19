@@ -1,0 +1,422 @@
+<Neuron Id="14" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+  <Axon Weight="0,17509423483866">
+    <Neuron Id="9" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+      <Axon Weight="0,997033867052306">
+        <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,938113251206518">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,315849025415186">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,380482732495518">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,662619867670638">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,944217953804982">
+        <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,262429360422506">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,757725608422293">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,977471589565962">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,831057751472601">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,395047115811634">
+        <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,170869769142414">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,115469293256974">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,802498652973444">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,192199078012351">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,0679276101607492">
+        <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,65438915912732">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,244045219963438">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,701785280696016">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,198253045882216">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,669831613390628">
+        <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,263733874663587">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,859633193751626">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,285213101788058">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,763401487266366">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+    </Neuron>
+  </Axon>
+  <Axon Weight="0,725774586073018">
+    <Neuron Id="10" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+      <Axon Weight="0,34771700731838">
+        <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,938113251206518">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,315849025415186">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,380482732495518">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,662619867670638">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,145637115997093">
+        <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,262429360422506">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,757725608422293">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,977471589565962">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,831057751472601">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,275991751009595">
+        <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,170869769142414">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,115469293256974">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,802498652973444">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,192199078012351">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,0967225581857946">
+        <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,65438915912732">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,244045219963438">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,701785280696016">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,198253045882216">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,119038455709367">
+        <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,263733874663587">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,859633193751626">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,285213101788058">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,763401487266366">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+    </Neuron>
+  </Axon>
+  <Axon Weight="0,144254805121689">
+    <Neuron Id="11" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+      <Axon Weight="0,287062699108879">
+        <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,938113251206518">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,315849025415186">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,380482732495518">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,662619867670638">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,561485321988112">
+        <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,262429360422506">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,757725608422293">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,977471589565962">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,831057751472601">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,0644355966078283">
+        <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,170869769142414">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,115469293256974">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,802498652973444">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,192199078012351">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,140156470304428">
+        <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,65438915912732">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,244045219963438">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,701785280696016">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,198253045882216">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,658348926649591">
+        <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,263733874663587">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,859633193751626">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,285213101788058">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,763401487266366">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+    </Neuron>
+  </Axon>
+  <Axon Weight="0,972450630260841">
+    <Neuron Id="12" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+      <Axon Weight="0,999080154578704">
+        <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,938113251206518">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,315849025415186">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,380482732495518">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,662619867670638">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,949027250497149">
+        <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,262429360422506">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,757725608422293">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,977471589565962">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,831057751472601">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,0951157547976429">
+        <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,170869769142414">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,115469293256974">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,802498652973444">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,192199078012351">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,456947403707051">
+        <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,65438915912732">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,244045219963438">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,701785280696016">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,198253045882216">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,270087426654104">
+        <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,263733874663587">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,859633193751626">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,285213101788058">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,763401487266366">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+    </Neuron>
+  </Axon>
+  <Axon Weight="0,895962004035694">
+    <Neuron Id="13" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+      <Axon Weight="0,536871373903412">
+        <Neuron Id="4" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,938113251206518">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,315849025415186">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,380482732495518">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,662619867670638">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,371377715082549">
+        <Neuron Id="5" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,262429360422506">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,757725608422293">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,977471589565962">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,831057751472601">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,560665597934586">
+        <Neuron Id="6" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,170869769142414">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,115469293256974">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,802498652973444">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,192199078012351">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,137136142299108">
+        <Neuron Id="7" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,65438915912732">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,244045219963438">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,701785280696016">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,198253045882216">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+      <Axon Weight="0,654638251128904">
+        <Neuron Id="8" FunctionName="MultyLayerPerceptron.Perceptron+TangentHyperbolic">
+          <Axon Weight="0,263733874663587">
+            <Neuron Id="0" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,859633193751626">
+            <Neuron Id="1" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,285213101788058">
+            <Neuron Id="2" FunctionName="null" />
+          </Axon>
+          <Axon Weight="0,763401487266366">
+            <Neuron Id="3" FunctionName="null" />
+          </Axon>
+        </Neuron>
+      </Axon>
+    </Neuron>
+  </Axon>
+</Neuron>
