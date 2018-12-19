@@ -41,7 +41,7 @@ namespace MultyLayerPerceptron
             set => _value = value;
         }
 
-        public void DoJob()
+        public void DoJob(Perceptron perceptron)
         {
             if (_children.Count == 0)
             {
@@ -52,8 +52,10 @@ namespace MultyLayerPerceptron
                 double summ = 0;
                 foreach (Axon axon in _children)
                 {
-                    axon.Neuron.DoJob(); // Call value calculator
-                    summ += axon.Neuron.Value * axon.Weight; // Adding value to summ
+                    int axonNeuronIndex = axon.NeuronIndex;
+                    Neuron neuron = perceptron.GetByIndex(axonNeuronIndex);
+                    neuron.DoJob(perceptron); // Call value calculator
+                    summ += neuron.Value * axon.Weight; // Adding value to summ
                 }
 
                 _value = _activationFunction.Activation(summ);
@@ -76,8 +78,9 @@ namespace MultyLayerPerceptron
             foreach (var axon in _children)
             {
                 XmlElement childContainer = document.CreateElement("Axon");
+                childContainer.SetAttribute("Id", axon.NeuronIndex.ToString());
                 childContainer.SetAttribute("Weight", axon.Weight.ToString());
-                childContainer.AppendChild(axon.Neuron.ToXml(document));
+                
                 element.AppendChild(childContainer);
             }
 
@@ -85,43 +88,22 @@ namespace MultyLayerPerceptron
             return element;
         }
 
-        public static Neuron FromXml(XmlElement element, Perceptron host)
+        internal static Neuron FromXml(XmlElement element, Perceptron host)
         {
             // Check if neuron exists
-            Neuron neuron;
-            int index = Int32.Parse(element.GetAttribute("Id"));
-
-            neuron = host.GetByIndex(index);
-
-            if (neuron != null)
-                return neuron;
-            
-            neuron = new Neuron();
-            host.Neurons.Add(neuron);
-            host.NeuronIndexes.Add(index);
-
-            neuron._index = index;
+            Neuron neuron = new Neuron();
+            neuron._index = Int32.Parse(element.GetAttribute("Id"));
             string functionName = element.GetAttribute("FunctionName");
             neuron._activationFunction = Perceptron.GetFunction(functionName);
 
-            XmlNodeList axons = element.ChildNodes;
+            XmlNodeList axonsNodes = element.ChildNodes;
 
-            if (axons.Count == 0)
+            foreach (XmlElement axonNode in axonsNodes)
             {
-                // This neuron is input neuron!
-                Console.WriteLine("Input neuron detected! Index: " + index);
-                host.AddInputNeuron(neuron);
-            }
-            else
-            {
-                foreach (XmlElement axonNode in axons)
-                {
-                    double weight = Convert.ToDouble(axonNode.GetAttribute("Weight"));
+                int childIndex = Convert.ToInt32(axonNode.GetAttribute("Id"));
+                double weight = Convert.ToDouble(axonNode.GetAttribute("Weight"));
 
-                    Neuron child = FromXml((XmlElement) axonNode.ChildNodes[0], host);
-
-                    neuron._children.Add(new Axon(child, weight));
-                }
+                neuron.Add(new Axon(childIndex, weight));
             }
 
             return neuron;

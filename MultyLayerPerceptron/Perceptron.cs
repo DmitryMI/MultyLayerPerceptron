@@ -15,7 +15,7 @@ namespace MultyLayerPerceptron
         private Neuron[] _input;
         private Neuron[] _output;
 
-        private List<int> _neuronIndexes = new List<int>();
+        //private List<int> _neuronIndexes = new List<int>();
         private List<Neuron> _neurons = new List<Neuron>();
 
         class TangentHyperbolic : IActivationFunction
@@ -44,8 +44,27 @@ namespace MultyLayerPerceptron
             return instance;
         }
 
-        private Perceptron()
+        private Perceptron(int neuronCount)
         {
+            Neuron[] buffer = new Neuron[neuronCount];
+            _neurons = new List<Neuron>(neuronCount);
+            _neurons.AddRange(buffer);
+        }
+
+        private Neuron CreateNeuron(IActivationFunction func)
+        {
+            Neuron n = new Neuron(func);
+            if (_neurons.Count == 0)
+            {
+                n.Index = 0;
+            }
+            else
+            {
+                n.Index = _neurons.Last().Index + 1;
+            }
+            _neurons.Add(n);
+
+            return n;
         }
 
         public Perceptron(int layerCount, int layerSize, int inputlayerSize, int outputLayerSize)
@@ -55,7 +74,7 @@ namespace MultyLayerPerceptron
             Neuron[] inputNeurons = new Neuron[inputlayerSize];
             for (int i = 0; i < inputNeurons.Length; i++)
             {
-                inputNeurons[i] = new Neuron(null);
+                inputNeurons[i] = CreateNeuron(null);
                 inputNeurons[i].Index = index++;
             }
 
@@ -64,11 +83,11 @@ namespace MultyLayerPerceptron
             // Filling first layer
             for (int i = 0; i < layerSize; i++)
             {
-                layer[i] = new Neuron(new TangentHyperbolic());
+                layer[i] = CreateNeuron(new TangentHyperbolic());
                 layer[i].Index = index++;
                 foreach (Neuron inputNeuron in inputNeurons)
                 {
-                    layer[i].Add(new Axon(inputNeuron, _rnd.NextDouble()));
+                    layer[i].Add(new Axon(inputNeuron.Index, _rnd.NextDouble()));
                 }
             }
 
@@ -78,11 +97,11 @@ namespace MultyLayerPerceptron
                 Neuron[] nLayer = new Neuron[layerSize];
                 for (int j = 0; j < layerSize; j++)
                 {
-                    nLayer[j] = new Neuron(new TangentHyperbolic());
+                    nLayer[j] = CreateNeuron(new TangentHyperbolic());
                     nLayer[j].Index = index++;
                     foreach (Neuron prevNeuron in layer)
                     {
-                        nLayer[j].Add(new Axon(prevNeuron, _rnd.NextDouble()));
+                        nLayer[j].Add(new Axon(prevNeuron.Index, _rnd.NextDouble()));
                     }
                 }
                 layer = nLayer;
@@ -93,21 +112,16 @@ namespace MultyLayerPerceptron
 
             for (int i = 0; i < outputLayerSize; i++)
             {
-                outputNeurons[i] = new Neuron(new TangentHyperbolic());
+                outputNeurons[i] = CreateNeuron(new TangentHyperbolic());
                 outputNeurons[i].Index = index++;
                 foreach (Neuron prev in layer)
                 {
-                    outputNeurons[i].Add(new Axon(prev, _rnd.NextDouble()));
+                    outputNeurons[i].Add(new Axon(prev.Index, _rnd.NextDouble()));
                 }
             }
 
             _input = inputNeurons;
             _output = outputNeurons;
-
-            for (int i = 0; i < index; i++)
-            {
-                _neuronIndexes.Add(i);
-            }
         }
 
         public void PutData(double[] data)
@@ -125,7 +139,7 @@ namespace MultyLayerPerceptron
 
             foreach (var output in _output)
             {
-                output.DoJob();
+                output.DoJob(this);
                 result.Add(output.Value);
             }
 
@@ -135,10 +149,12 @@ namespace MultyLayerPerceptron
         public XmlDocument ToXml()
         {
             XmlDocument document = new XmlDocument();
+            XmlElement root = document.CreateElement("Perceptron");
+            document.AppendChild(root);
 
-            foreach (var outputNeuron in _output)
+            foreach (var outputNeuron in _neurons)
             {
-                document.AppendChild(outputNeuron.ToXml(document));
+                root.AppendChild(outputNeuron.ToXml(document));
             }
 
             return document;
@@ -174,29 +190,49 @@ namespace MultyLayerPerceptron
 
         internal Neuron GetByIndex(int index)
         {
-            for (int i = 0; i < _neuronIndexes.Count; i++)
-            {
-                if (_neuronIndexes[i] == index)
-                    return _neurons[i];
-            }
-
-            return null;
+            return _neurons[index];
         }
 
-        internal List<int> NeuronIndexes => _neuronIndexes;
         internal List<Neuron> Neurons => _neurons;
         public static Perceptron LoadFromXml(XmlDocument document)
         {
-            Perceptron perceptron = new Perceptron();
+            XmlNodeList outputNeuronsNodeList = document.ChildNodes[0].ChildNodes;
 
-            // Get output neurons
-            //XmlNodeList outputNeuronsNodeList = document.GetElementsByTagName("Neuron");
-            XmlNodeList outputNeuronsNodeList = document.ChildNodes;
+            Perceptron perceptron = new Perceptron(outputNeuronsNodeList.Count);
+            
             foreach (XmlElement neuronElement in outputNeuronsNodeList)
             {
                 Neuron neuron = Neuron.FromXml(neuronElement, perceptron);
-                perceptron.AddOutputNeuron(neuron);
+                perceptron._neurons[neuron.Index]  = neuron;
             }
+
+            List<int> noParentList = new List<int>();
+            for(int i = 0; i < perceptron._neurons.Count; i++)
+                noParentList.Add(i);
+
+            foreach (var neuron in perceptron._neurons)
+            {
+                foreach (var axon in neuron)
+                {
+                    noParentList.Remove(axon.NeuronIndex);
+                }
+            }
+
+            foreach (var index in noParentList)
+            {
+                Console.WriteLine("Output neuron: " + index);
+                perceptron.AddOutputNeuron(perceptron.GetByIndex(index));
+            }
+
+            foreach (var neuron in perceptron._neurons)
+            {
+                if (neuron.Count == 0)
+                {
+                    Console.WriteLine("Input neuron: " + neuron.Index);
+                    perceptron.AddInputNeuron(neuron);
+                }
+            }
+          
 
             return perceptron;
         }

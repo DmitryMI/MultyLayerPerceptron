@@ -25,14 +25,11 @@ namespace TestPerceptron
             document.Save(file);
 
             network = Perceptron.LoadFromXml(document);
-
             TestNetwork(network);
 
-            if (File.Exists("../../../network_resaved.xml"))
-                File.Delete("../../../network_resaved.xml");
-
-            FileStream nFile = new FileStream("../../../network_resaved.xml", FileMode.OpenOrCreate);
-            network.ToXml().Save(nFile);
+            file.Close();
+            file = new FileStream("../../../network_resave.xml", FileMode.OpenOrCreate);
+            network.ToXml().Save(file);
 
             Console.ReadKey();
         }

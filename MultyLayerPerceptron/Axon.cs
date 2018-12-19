@@ -9,19 +9,19 @@ namespace MultyLayerPerceptron
     internal class Axon
     {
 
-        private Neuron _neuron;
+        private int _neuronIndex;
         private double _weight;
 
-        public Axon(Neuron neuron, double weight)
+        public Axon(int neuronIndex, double weight)
         {
-            _neuron = neuron;
+            _neuronIndex = neuronIndex;
             _weight = weight;
         }
 
-        public Neuron Neuron
+        public int NeuronIndex
         {
-            get { return _neuron; }
-            set { _neuron = value; }
+            get { return _neuronIndex; }
+            set { _neuronIndex = value; }
         }
 
         public double Weight
